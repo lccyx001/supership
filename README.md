@@ -4,9 +4,16 @@
 
 ## 目录结构
 
-- __backend__ 后端代码根目录
-- __frontend__ 前端代码根目录
 - __docs__ 项目文档
+- __ship__ 代码根目录
+
+## 项目运行
+
+```sh
+cd ship
+npm install
+npm run dev
+```
 
 ## 工程规范
 
