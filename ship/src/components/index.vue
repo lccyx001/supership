@@ -59,14 +59,19 @@ export default {
     submitForm() {
       const _this = this;
       this.$axios
-        .post("login", {
-          name: this.loginForm.username,
+        .post("Ship/login", {
+          username: this.loginForm.username,
           password: this.loginForm.password,
         })
         .then((res) => {
-          if (res.data.code == 200) {
-            _this.$store.commit("SET_TOKEN", res.data.token);
-            _this.$store.commit("GET_USER", res.data.user);
+          console.log(res.data);
+          if (res.data.errcode == 0) {
+            _this.$store.commit("SET_TOKEN", res.data.data.tookenId);
+            _this.$store.commit("GET_USER", res.data.data.userId);
+            // _this.$store.commit("SET_TOKEN", res.data.data.name);
+            // _this.$store.commit("SET_TOKEN", res.data.data.onlineTick);
+            // _this.$store.commit("SET_TOKEN", res.data.data.authority);
+            // _this.$store.commit("SET_TOKEN", res.data.data.coin);
             _this.$message({
               message: "登陆成功",
               type: "success",

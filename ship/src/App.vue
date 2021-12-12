@@ -7,48 +7,6 @@
         <el-aside width="200px">
           <el-row>
             <el-col>
-              <!-- <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose"
-              >
-                <el-submenu index="1">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>导航一</span>
-                  </template>
-                  <el-menu-item-group>
-                    <template slot="title">分组一</template>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                  </el-menu-item-group>
-                  <el-submenu index="1-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-menu-item index="2">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title">导航二</span>
-                </el-menu-item>
-                <el-menu-item
-                  index="3"
-                  disabled
-                >
-                  <i class="el-icon-document"></i>
-                  <span slot="title">导航三</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">导航四</span>
-                </el-menu-item>
-              </el-menu> -->
-
-              <!--  -->
               <el-menu router>
                 <el-submenu
                   v-for="(item, i) in navList"
@@ -71,24 +29,6 @@
                   </el-menu-item>
                 </el-submenu>
               </el-menu>
-
-              <!-- <el-menu
-                default-active="2"
-                router
-              >
-                <el-menu-item
-                  v-for="(item, i) in navList"
-                  :key="i"
-                  :index="item.name"
-                >
-                  <template slot="title">
-                    <i :class="item.icon"></i>
-                    <span>{{item.navItem}}</span>
-                  </template>
-
-                  <i :class="item.icon"> {{ item.navItem }}</i>
-                </el-menu-item>
-              </el-menu> -->
             </el-col>
           </el-row>
         </el-aside>
@@ -96,7 +36,7 @@
           <router-view />
         </el-main>
       </el-container>
-      <el-footer>{{ welcome }}</el-footer>
+      <!-- <el-footer>{{ welcome }}</el-footer> -->
     </el-container>
   </div>
 </template>
@@ -109,6 +49,7 @@ export default {
     return {
       welcome: '欢迎来到管理系统',
       navList: [
+        // 第一个目录
         {
           name: '/desk', idx: '1', navItem: '游轮客房管理', icon: 'el-icon-s-grid',
           groups: [
@@ -118,6 +59,7 @@ export default {
             { idx: '1-4', name: '/', navItem: '打印明细', icon: 'el-icon-news' }
           ]
         },
+        // 第二个目录
         {
           name: '/records', idx: '2', navItem: '信息查询管理', icon: 'el-icon-s-data', groups: [
             { idx: '1-1', name: '/', navItem: '查询用户信息', icon: 'el-icon-wallet' },
@@ -128,12 +70,13 @@ export default {
 
           ]
         },
+        // 第三个目录
         {
           name: '/vip', idx: '3', navItem: '用户功能', icon: 'el-icon-user-solid', groups: [
-            { idx: '1-1', name: '/', navItem: '游轮查询', icon: 'el-icon-wallet' },
-            { idx: '1-1', name: '/', navItem: '游轮预订', icon: 'el-icon-wallet' },
-            { idx: '1-1', name: '/', navItem: '积分管理', icon: 'el-icon-wallet' },
-            { idx: '1-1', name: '/', navItem: '优惠信息', icon: 'el-icon-wallet' }
+            { idx: '1-1', name: '/vip', navItem: '游轮查询', icon: 'el-icon-date' },
+            { idx: '1-1', name: '/table_detail', navItem: '个人信息', icon: 'el-icon-user' },
+            // { idx: '1-1', name: '/', navItem: '积分管理', icon: 'el-icon-wallet' },
+            // { idx: '1-1', name: '/', navItem: '优惠信息', icon: 'el-icon-wallet' }
           ]
         }
         // { name: '/goods', navItem: '库存', icon: 'el-icon-s-shop' }

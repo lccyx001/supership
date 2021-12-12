@@ -6,8 +6,8 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:5000'
-axios.defaults.timeout = 1000
+axios.defaults.baseURL = 'http://192.168.191.1:8010'
+axios.defaults.timeout = 60000
 axios.defaults.withCredentials = true
 axios.defaults.headers = { 'Content-Type': 'application/json' }
 Vue.prototype.$axios = axios
